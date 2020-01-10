@@ -40,6 +40,8 @@ class Motor:
     REVERSE=(GPIO.LOW,GPIO.HIGH)
     OFF=(GPIO.LOW,GPIO.LOW)
     
+    ACTIONS=(OFF,FORWARD,REVERSE)
+    
     def __init__(self, pins):
         self.pins=pins
         GPIO.setup(self.pins[0], GPIO.OUT)
