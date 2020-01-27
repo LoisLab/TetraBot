@@ -21,10 +21,7 @@ class DefaultRequestHandler(BaseHTTPRequestHandler):
                 self.listener.listen(request)
         except Exception as e:
             error_msg = '<p>' + str(e) + '</p>'
-        response = '<html><body>'+self.listener.get_homepage()+'</body></html>'
-        response = response.replace('%ip%',self.get_ip_address())
-        response += error_msg
-        response += '</body></html>'
+        response = str((self.listener.rotation, self.listener.orientation))
         self.wfile.write(response.encode('utf-8'))
         return
     
